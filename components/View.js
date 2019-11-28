@@ -69,7 +69,7 @@ export default class View extends Component {
     }
     _saveNotes = () => {
         const Notes = this.state.notes
-        const saveNotes = AsyncStorage.setItem("Notes", JSON.stringify(Notes))
+        AsyncStorage.setItem("Notes", JSON.stringify(Notes))
     }
 
     render() {

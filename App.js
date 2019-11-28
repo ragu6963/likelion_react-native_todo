@@ -11,7 +11,7 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             isReady: false,
-            Notes: {}
+            Notes: {},
         };
     }
     async componentDidMount() {
@@ -20,12 +20,24 @@ export default class App extends React.Component {
             Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
             ...Ionicons.font,
         });
-        const loadNotes = await AsyncStorage.getItem("Notes")
-        const parseNote = JSON.parse(loadNotes)
-        this.setState({
-            Notes: parseNote,
-            isReady: true,
-        })
+        try {
+            const loadNotes = await AsyncStorage.getItem("Notes")
+            if (loadNotes !== null) {
+                const parseNote = JSON.parse(loadNotes)
+                this.setState({
+                    Notes: parseNote,
+                })
+            }
+            this.setState({
+                isReady: true,
+            })
+
+        } catch (error) {
+            this.setState({
+                isReady: true,
+            })
+        }
+
     }
     render() {
         if (!this.state.isReady) {

@@ -4,6 +4,13 @@
     "slug": "todo",
     "privacy": "public",
     "sdkVersion": "35.0.0",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jeong.likeliontodo"
+    },
+    "android": {
+      "package": "com.jeong.likeliontodo"
+    },
     "platforms": [
       "ios",
       "android",
@@ -22,13 +29,6 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.ragu.likelion_todo"
-    },
-    "android": {
-      "package": "com.ragu.likelion_todo"
-    }
+    ]
   }
 }
